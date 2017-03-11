@@ -5,8 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Bank" Height="538" Width="522">
+    <Window.Resources>
+        <DataTemplate x:Key="ListElement">
+            <Grid Margin="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBlock Text=""></TextBlock>
+                <TextBlock Text=" "></TextBlock>
+                <TextBlock Text=""></TextBlock>
+                <TextBlock Text=" - "></TextBlock>
+                <TextBlock Text=""></TextBlock>
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
     <Grid>
-        
+        <Label x:Name="lbClient" Content="Wybierz klienta:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbClients" HorizontalAlignment="Left" Margin="109,14,0,0" VerticalAlignment="Top" Width="305"/>
+        <Button x:Name="btnAddClient" Content="Dodaj klienta" HorizontalAlignment="Left" Margin="427,14,0,0" VerticalAlignment="Top" Width="75"/>
+        <GroupBox x:Name="gbAccounts" Header="Konta klienta" HorizontalAlignment="Left" Margin="10,74,0,0" VerticalAlignment="Top" Width="497" Height="220">
+            <ListBox x:Name="lstAccounts" Margin="0,0,103,-2" />
+
+        </GroupBox>
+        <Button x:Name="btnAddAccount" Content="Dodaj konto" HorizontalAlignment="Left" Margin="411,103,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnRemoveAccount" Content="Usuń konto" HorizontalAlignment="Left" Margin="411,130,0,0" VerticalAlignment="Top" Width="75"/>
+        <GroupBox x:Name="gbOperations" Header="Operacje na koncie" HorizontalAlignment="Left" Margin="10,299,0,0" VerticalAlignment="Top" Height="54" Width="497">
+            <TextBox x:Name="txtAmmount" HorizontalAlignment="Left" Height="24" Margin="0,6,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="311"/>
+
+        </GroupBox>
+        <Button x:Name="btnPayment" Content="Wpłać" HorizontalAlignment="Left" Margin="339,322,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnWithdraw" Content="Wypłać" HorizontalAlignment="Left" Margin="419,322,0,0" VerticalAlignment="Top" Width="75"/>
+        <Expander x:Name="expander" Header="Historia operacji" HorizontalAlignment="Left" Margin="10,358,0,0" VerticalAlignment="Top" Width="494" Height="140">
+            <Grid Background="#FFE5E5E5" Height="104">
+                <ListBox x:Name="lstOperationList" ItemTemplate="{StaticResource ListElement}">
+                </ListBox>
+            </Grid>
+        </Expander>
+
     </Grid>
 </Window>
